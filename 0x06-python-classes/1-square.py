@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""Square and set size as private instance variable"""
+
+
 class Square:
     """class Square that defines a square by: (based on 0-square.py)
        -Private instance attribute: size
