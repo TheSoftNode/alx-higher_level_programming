@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """ N QUEENS ALGORITHM WITH BACKTRACKING (RECURSION INSIDE LOOP) """
+
 import sys
 
 
