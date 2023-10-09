@@ -1,6 +1,7 @@
 #!/usr/bin/python3
+"""writing a base geometry class"""
 
 
 class BaseGeometry:
-    """ Empty Base Geometry Class """
+    """writing a base geometry class"""
     pass
