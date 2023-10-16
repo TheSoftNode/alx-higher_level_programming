@@ -1,66 +1,53 @@
 #!/usr/bin/python3
-"""The square model, let's write"""
+""" Model Square that inherits from Base """
+
 from models.rectangle import Rectangle
 
 
 class Square(Rectangle):
-    """the square model"""
+    """ Class that defines a Square Object """
 
     def __init__(self, size, x=0, y=0, id=None):
-        """The constructor class for the square"""
-        super().__init__(width=size, height=size, x=x, y=y, id=id)
-
-    def __str__(self):
-        """update the print for square"""
-        value = "[Square] ({}) {}/{} - {}".format(self.id, self.x,
-                                                  self.y, self.width)
-        return (value)
+        """ Constructor """
+        super().__init__(size, size, x, y, id)
 
     @property
     def size(self):
-        """getter of size"""
-        return (self.width)
+        """ size getter """
+        return self.width
 
     @size.setter
     def size(self, value):
-        """set the size"""
+        """ size setter """
         self.width = value
         self.height = value
 
+    def __str__(self):
+        """ Print Method """
+        st = "[Square] ({:d}) {:d}/{:d} - {:d}"
+        st = st.format(self.id, self.x, self.y, self.width)
+        return st
+
     def update(self, *args, **kwargs):
-        """update the attribute based on variable/keyword argument"""
+        """ Functions to update arguments of each attr """
+        arlist = ["id", "size", "x", "y"]
+        ct = 0
         if args and len(args) != 0:
-            a = 0
-            for arg in args:
-                if a == 0:
-                    if arg is None:
-                        self.__init__(self.size, self.x, self.y)
-                    else:
-                        self.id = arg
-                elif a == 1:
-                    self.size = arg
-                elif a == 2:
-                    self.x = arg
-                elif a == 3:
-                    self.y = arg
-                a += 1
-        elif kwargs and len(kwargs) != 0: 
-            for k, v in kwargs.items():
-                if k == "id":
-                    if v is None:
-                        self.__init__(self.size, self.x, self.y)
-                    else:
-                        self.id = v
-                elif k == "size":
-                    self.size = v
-                elif k == "x":
-                    self.x = v
-                elif k == "y":
-                    self.y = v
+            for ar in args:
+                if ct == 0:
+                    super().update(ar)
+                elif ct < len(arlist):
+                    setattr(self, arlist[ct], ar)
+                ct += 1
+
+        else:
+            for key, value in kwargs.items():
+                if key == "id":
+                    super().update(id=value)
+                else:
+                    setattr(self, key, value)
 
     def to_dictionary(self):
-        """return the dictionary representa... of attr..."""
-        return {'id': self.id,
-                'size': self.size,
-                'x': self.x,
-                'y': self.y}
+        """ Returns dicitionary representation of Square """
+        sqdic = {"id": self.id, "size": self.size, "x": self.x, "y": self.y}
+        return sqdic
