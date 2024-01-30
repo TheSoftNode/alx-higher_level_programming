@@ -49,7 +49,3 @@ What you should learn from this project:
 ### [9. Twitter Auth](./102-search_twitter.js)
 * Write a Javascript script that takes in 3 strings and sends a search request to the Twitter API
 
----
-
-## Author
-* **Jhoan Stiven Zamora Caicedo** - [jzamora5](https://github.com/jzamora5)
